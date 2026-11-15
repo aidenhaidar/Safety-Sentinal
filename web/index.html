@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Safety Sentinel — Control Room</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>Safety Sentinel</h1><span class="dim">Control room</span>
+  <span class="grow"></span>
+  <span id="status"><span class="dot"></span>Connecting…</span>
+  <button class="primary" id="addPhone">Add a phone as a sensor</button>
+</header>
+<main class="dash">
+  <div>
+    <section class="card"><h2>Zones</h2><div class="zones" id="zones"></div></section>
+    <section class="card"><h2>Sensor nodes</h2><div class="nodes" id="nodes"></div></section>
+    <section class="card"><h2>Incidents and actions taken</h2><div id="incidents"></div></section>
+  </div>
+  <div>
+    <section class="card"><h2>Agent opinions</h2><div id="detail"></div></section>
+    <section class="card"><h2>Custom alerts</h2><div id="rules"></div></section>
+  </div>
+</main>
+<dialog id="phoneDlg">
+  <h3>Add a phone as a sensor node</h3>
+  <p class="dim">Scan with the phone's camera, then allow camera and microphone access.</p>
+  <div style="text-align:center"><div id="qr"></div><div class="url" id="nodeUrl"></div></div>
+  <div class="row" style="margin-top:14px"><span class="grow"></span><button id="closeDlg">Close</button></div>
+</dialog>
+<script src="config.js"></script>
+<script src="vendor/qrcode.min.js"></script>
+<script src="common.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

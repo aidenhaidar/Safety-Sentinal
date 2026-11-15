@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Safety Sentinel — Sensor node</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="phone">
+  <div id="setup">
+    <h1 style="font-size:22px;margin:10px 0 4px">Join as a sensor node</h1>
+    <p class="dim" style="margin-top:0">This phone will share its camera and microphone with the Safety Sentinel control room while this page is open.</p>
+    <form id="joinForm">
+      <label for="name">Name of this spot</label><input id="name" required maxlength="30" placeholder="Front entrance">
+      <label for="zone">Zone</label><input id="zone" required maxlength="30" value="Main">
+      <label for="tier">How important is this position?</label>
+      <select id="tier">
+        <option value="critical">Critical — entrance, stage, choke point (full weight)</option>
+        <option value="standard" selected>Standard (0.8 weight)</option>
+        <option value="peripheral">Peripheral — edge of the area (0.6 weight)</option>
+      </select>
+      <div id="codeRow" hidden><label for="code">Join code</label><input id="code" autocomplete="off"></div>
+      <button class="primary" type="submit" style="width:100%;margin-top:16px;padding:12px">Start sensing</button>
+      <div class="err" id="err" role="alert"></div>
+    </form>
+  </div>
+  <div id="live" hidden>
+    <div class="banner SAFE" id="banner"><div class="dim" id="who"></div><div class="lvl" id="lvl">SAFE</div><div class="mono" id="score">Danger 0%</div></div>
+    <div class="notice" id="directive" hidden></div>
+    <video id="video" playsinline muted autoplay></video>
+    <div class="row" style="margin:12px 0 4px"><span class="dim" style="font-size:13px;width:74px">Microphone</span><div class="bar grow"><i id="meter" style="width:0"></i></div></div>
+    <div class="dim" style="font-size:13px" id="stats">Connecting…</div>
+    <div id="ops" style="margin-top:10px"></div>
+    <button id="stop" style="width:100%;margin-top:16px">Stop sensing</button>
+  </div>
+</main>
+<script src="config.js"></script>
+<script src="common.js"></script>
+<script src="node.js"></script>
+</body>
+</html>
